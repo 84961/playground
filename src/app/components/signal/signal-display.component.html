@@ -1,0 +1,15 @@
+<div class="component">
+    <h3>toSignal Component</h3>
+    <div class="content">
+      <p>Signal value: {{  dataSignal() }}</p>
+      <p>Error count: {{ errorCount() }}</p>
+      <p class="explanation">
+        Every template reading of dataSignal() after error will throw.
+        Even with try/catch, this approach is problematic because:
+        <br>
+        1. Each reading triggers global error handlers
+        <br>
+        2. Errors propagate up component tree
+      </p>
+    </div>
+  </div>

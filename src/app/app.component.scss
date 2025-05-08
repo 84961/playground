@@ -1,0 +1,46 @@
+.container {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  h1 {
+    color: #333;
+    margin-bottom: 20px;
+  }
+  .controls {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  button {
+    padding: 10px 20px;
+    background-color: #4285f4;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #3367d6;
+  }
+  .info {
+    font-style: italic;
+    color: #666;
+    margin-top: 10px;
+  }
+  .explanation {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 4px;
+    margin-top: 30px;
+  }
+  .explanation h2 {
+    margin-top: 0;
+  }
+  .explanation ul {
+    padding-left: 20px;
+  }
+  .explanation li {
+    margin-bottom: 10px;
+  }

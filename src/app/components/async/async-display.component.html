@@ -1,0 +1,13 @@
+<div class="component">
+    <h3>Async Pipe Component</h3>
+    <div class="content">
+        <p>Observable value: {{ data$ | async }}</p>
+        <p class="explanation">
+            After an error, the async pipe simply shows nothing.
+            <br>
+            The error is caught internally and the pipe stops emitting.
+            <br>
+            No re-throwing of errors on subsequent template renders.
+        </p>
+    </div>
+</div>

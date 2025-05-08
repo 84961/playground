@@ -1,0 +1,14 @@
+<div class="component">
+    <h3>Handled Signal Component</h3>
+    <div class="content">
+      <p>Signal value: {{ safeDataSignal() }}</p>
+      <p>Error state: {{ errorState() ? errorState()?.message : 'None' }}</p>
+      <p class="explanation">
+        By handling errors in the source Observable with catchError,
+        the signal won't throw on read after an error.
+        <br>
+        This pattern provides behavior similar to async pipe,
+        but with signal reactivity benefits.
+      </p>
+    </div>
+  </div>
