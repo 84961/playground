@@ -1,0 +1,46 @@
+.card {
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
+  background-color: #fff;
+  margin: 1rem;
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: #495057;
+}
+
+:host ::ng-deep {
+  .p-button {
+    margin-right: 0.5rem;
+  }
+  
+  .p-paginator {
+    .p-paginator-current {
+      margin-left: auto;
+    }
+  }
+  
+  .p-datatable {
+    .p-datatable-header {
+      padding: 1rem;
+      text-align: left;
+      font-size: 1.5rem;
+    }
+    
+    .p-datatable-thead > tr > th {
+      text-align: left;
+    }
+    
+    .p-datatable-tbody > tr > td {
+      cursor: auto;
+    }
+  }
+}
+
+// :host ::ng-deep .p-listbox .p-listbox-list .p-listbox-item:hover {
+//   background-color: var(--hover-color);
+//   transition: none !important;
+// }

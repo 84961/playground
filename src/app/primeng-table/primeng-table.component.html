@@ -1,0 +1,92 @@
+<div class="card">
+  <p-toolbar styleClass="mb-4 gap-2">
+    <ng-template pTemplate="left">
+      <h2 class="m-0">Company Audit Dashboard</h2>
+    </ng-template>
+    <ng-template pTemplate="right">
+      <button pButton pRipple label="New Audit" icon="pi pi-plus" class="p-button-success mr-2"></button>
+      <button pButton pRipple label="Delete" icon="pi pi-trash" class="p-button-danger" [disabled]="!selectedAudits || !selectedAudits.length"></button>
+    </ng-template>
+  </p-toolbar>
+  
+  <!-- PrimeNG Listbox -->
+  <div class="mb-4">
+    <p-listbox 
+      [options]="cities" 
+      [ngModel]="selectedCity" 
+      (ngModelChange)="onCityChange($event)" 
+      optionLabel="name" 
+      class="w-full md:w-56"
+      suppressCd>
+    </p-listbox>
+  </div>
+  <!-- <div class="mb-4">
+    <p-listbox 
+      [options]="cities" 
+      [ngModel]="selectedCity" 
+      (ngModelChange)="onCityChange($event)" 
+      optionLabel="name" 
+      class="w-full md:w-56">
+    </p-listbox>
+  </div> -->
+  
+  <p-table 
+    #dt 
+    [value]="audits" 
+    [rows]="10" 
+    [paginator]="true" 
+    [globalFilterFields]="['companyName','auditorName','department','status']"
+    [tableStyle]="{ 'min-width': '75rem' }"
+    [rowHover]="true" 
+    [showCurrentPageReport]="true"
+    [rowsPerPageOptions]="[5, 10, 25]" 
+    [(selection)]="selectedAudits"
+    selectionMode="multiple"
+    [loading]="loading"
+    dataKey="id"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} audits">
+    
+    <ng-template pTemplate="header">
+      <tr>
+        <th>ID</th>
+        <th>Company</th>
+        <th>Auditor</th>
+        <th>Date</th>
+        <th>Department</th>
+        <th>Findings</th>
+        <th>Status</th>
+        <th>Criticality</th>
+        <th>Actions</th>
+      </tr>
+    </ng-template>
+    
+    <ng-template pTemplate="body" let-audit>
+      <tr>
+        <td>{{audit.id}}</td>
+        <td>{{audit.companyName}}</td>
+        <td>{{audit.auditorName}}</td>
+        <td>{{audit.auditDate | date:'shortDate'}}</td>
+        <td>{{audit.department}}</td>
+        <td>{{audit.findings}}</td>
+        <td>
+          <p-tag [value]="audit.status" [severity]="getSeverity(audit.status)"></p-tag>
+        </td>
+        <td>
+          <p-tag [value]="audit.criticality" [severity]="getCriticalitySeverity(audit.criticality)"></p-tag>
+        </td>
+        <td>
+          <button pButton type="button" icon="pi pi-eye" class="p-button-rounded p-button-info p-mr-2" pTooltip="View Details"></button>
+          <button pButton type="button" icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" pTooltip="Edit"></button>
+          <button pButton type="button" icon="pi pi-trash" class="p-button-rounded p-button-danger" pTooltip="Delete"></button>
+        </td>
+      </tr>
+    </ng-template>
+    
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="9">No audit records found.</td>
+      </tr>
+    </ng-template>
+    
+  </p-table>
+</div>
